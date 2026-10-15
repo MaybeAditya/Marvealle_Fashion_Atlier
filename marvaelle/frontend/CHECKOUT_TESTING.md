@@ -4,7 +4,7 @@
 
 Frontend (Vite build-time variables):
 
-- `VITE_API_BASE_URL`: backend deployment origin only, e.g. `https://your-backend-domain.vercel.app`.
+- `VITE_API_BASE_URL`: backend deployment origin only, e.g. `marvaelle-backend.vercel.app`.
 - `VITE_RAZORPAY_KEY_ID`: the same Razorpay Key ID as the backend, using test keys until testing is complete.
 
 Backend runtime variables:
