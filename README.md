@@ -1,4 +1,4 @@
-# Marvaelle — Full-Stack Fashion E-Commerce
+# Marvaelle —> Full-Stack Fashion E-Commerce
 
 A full-stack fashion e-commerce storefront built with **React, Vite, Node.js/Express, and PostgreSQL**. It includes account sign-in, product and inventory flows, Razorpay checkout, order history, and persistent newsletter signups.
 
