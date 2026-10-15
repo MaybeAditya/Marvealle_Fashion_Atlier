@@ -12,57 +12,57 @@ A full-stack fashion e-commerce storefront built with **React, Vite, Node.js/Exp
 
 ## Website Screenshots
 
-The screenshots below are captured from the deployed Marvaelle website. Place the ten image files in `docs/screenshots/` using the exact filenames shown in these paths.
+The screenshots below are captured from the deployed Marvaelle website. The ten screenshots are stored in `marvaelle/docs/screenshots/`. The paths below are relative to this README at the repository root, so GitHub can render them directly.
 
 <table>
   <tr>
     <td width="50%" align="center">
       <strong>Homepage / Hero</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_134810_marvaelle.vercel.app.jpeg" alt="Marvaelle homepage hero" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134810_marvaelle.vercel.app.jpeg" alt="Marvaelle homepage hero" width="420" />
     </td>
     <td width="50%" align="center">
       <strong>Current Collection</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_134827_marvaelle.vercel.app.jpeg" alt="Marvaelle current collection grid" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134827_marvaelle.vercel.app.jpeg" alt="Marvaelle current collection grid" width="420" />
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
       <strong>Editorial Section</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_134835_marvaelle.vercel.app.jpeg" alt="Marvaelle editorial section" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134835_marvaelle.vercel.app.jpeg" alt="Marvaelle editorial section" width="420" />
     </td>
     <td width="50%" align="center">
       <strong>Signup / Dialog View</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_134847_marvaelle.vercel.app.jpeg" alt="Marvaelle signup or dialog view" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134847_marvaelle.vercel.app.jpeg" alt="Marvaelle signup or dialog view" width="420" />
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
       <strong>Product Experience</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_134945_marvaelle.vercel.app.jpeg" alt="Marvaelle product experience" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134945_marvaelle.vercel.app.jpeg" alt="Marvaelle product experience" width="420" />
     </td>
     <td width="50%" align="center">
       <strong>Product / Store Layout</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_134958_marvaelle.vercel.app.jpeg" alt="Marvaelle product and store layout" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134958_marvaelle.vercel.app.jpeg" alt="Marvaelle product and store layout" width="420" />
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
       <strong>Shopping Bag</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_134920_marvaelle.vercel.app.jpeg" alt="Marvaelle shopping bag" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134920_marvaelle.vercel.app.jpeg" alt="Marvaelle shopping bag" width="420" />
     </td>
     <td width="50%" align="center">
       <strong>Checkout</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_134946_marvaelle.vercel.app.jpeg" alt="Marvaelle checkout page" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134946_marvaelle.vercel.app.jpeg" alt="Marvaelle checkout page" width="420" />
     </td>
   </tr>
   <tr>
     <td width="50%" align="center">
       <strong>Shopping Bag / Order Summary</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_135012_marvaelle.vercel.app.jpeg" alt="Marvaelle shopping bag and order summary" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_135012_marvaelle.vercel.app.jpeg" alt="Marvaelle shopping bag and order summary" width="420" />
     </td>
     <td width="50%" align="center">
       <strong>Account / Form Flow</strong><br />
-      <img src="docs/screenshots/Screenshot_15-10-2026_135035_marvaelle.vercel.app.jpeg" alt="Marvaelle account or form flow" width="420" />
+      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_135035_marvaelle.vercel.app.jpeg" alt="Marvaelle account or form flow" width="420" />
     </td>
   </tr>
 </table>
@@ -130,22 +130,24 @@ The frontend and backend live in the same repository but can be deployed as sepa
 ## Repository Structure
 
 ```text
-marvaelle/
-├── frontend/
-│   ├── public/images/        # Storefront product imagery
-│   ├── src/                  # React UI, API client, styles and catalogue data
-│   ├── .env.example
-│   ├── package.json
-│   └── vercel.json
-├── backend/
-│   ├── migrations/           # Explicit SQL schema changes
-│   ├── src/                  # Express routes, auth and database access
-│   ├── .env.example
-│   └── package.json
-├── docs/
-│   └── screenshots/          # Website screenshots embedded above
-├── .gitignore
-└── README.md
+Marvealle_Fashion_Atlier/
+├── README.md
+├── LICENSE
+└── marvaelle/
+    ├── frontend/
+    │   ├── public/images/        # Storefront product imagery
+    │   ├── src/                  # React UI, API client, styles and catalogue data
+    │   ├── .env.example
+    │   ├── package.json
+    │   └── vercel.json
+    ├── backend/
+    │   ├── migrations/           # Explicit SQL schema changes
+    │   ├── src/                  # Express routes, auth and database access
+    │   ├── .env.example
+    │   └── package.json
+    ├── docs/
+    │   └── screenshots/          # Website screenshots embedded above
+    └── .gitignore
 ```
 
 ## Run Locally
@@ -162,11 +164,11 @@ Use a development database and Razorpay test credentials while developing locall
 ### 1. Configure the backend
 
 ```bash
-cd backend
+cd marvaelle/backend
 npm install
 ```
 
-Copy `backend/.env.example` to `backend/.env` and fill in the local values. On Windows PowerShell, run `Copy-Item .env.example .env`; on macOS/Linux, run `cp .env.example .env` while inside `backend/`.
+From `marvaelle/backend/`, copy `.env.example` to `.env` and fill in the local values. On Windows PowerShell, run `Copy-Item .env.example .env`; on macOS/Linux, run `cp .env.example .env`.
 
 Apply the required SQL migrations to the database configured by `DATABASE_URL`, then start the backend:
 
@@ -178,14 +180,14 @@ The local API uses `http://localhost:3000` by default.
 
 ### 2. Configure the frontend
 
-Open a second terminal from the repository root:
+Open a second terminal from the repository root, then enter the frontend directory:
 
 ```bash
-cd frontend
+cd marvaelle/frontend
 npm install
 ```
 
-Copy `frontend/.env.example` to `frontend/.env`. Set `VITE_API_BASE_URL` to your local backend origin and set `VITE_RAZORPAY_KEY_ID` to the public Razorpay Key ID matching the backend configuration.
+From `marvaelle/frontend/`, copy `.env.example` to `.env`. Set `VITE_API_BASE_URL` to your local backend origin and set `VITE_RAZORPAY_KEY_ID` to the public Razorpay Key ID matching the backend configuration.
 
 ```bash
 npm run dev
@@ -195,14 +197,14 @@ Open the local URL printed by Vite.
 
 ## Environment Variables
 
-### Frontend — `frontend/.env`
+### Frontend — `marvaelle/frontend/.env`
 
 | Variable | Purpose |
 | --- | --- |
 | `VITE_API_BASE_URL` | Backend base URL, for example `http://localhost:3000` locally. |
 | `VITE_RAZORPAY_KEY_ID` | Public Razorpay Key ID used by Checkout. |
 
-### Backend — `backend/.env`
+### Backend — `marvaelle/backend/.env`
 
 | Variable | Purpose |
 | --- | --- |
@@ -244,7 +246,7 @@ For an existing database, inspect the current schema and migration history first
 | `POST` | `/api/orders/confirm` | Verify payment and confirm an order. |
 | `POST` | `/api/newsletter/subscribe` | Store a newsletter opt-in. |
 
-Additional order lookup and order-management routes are implemented in `backend/src/index.js`.
+Additional order lookup and order-management routes are implemented in `marvaelle/backend/src/index.js`.
 
 ## Deploy on Vercel
 
@@ -252,19 +254,19 @@ The frontend and backend are separate Vercel projects using this same repository
 
 ### Frontend project
 
-1. Set **Root Directory** to `frontend`.
+1. Set **Root Directory** to `marvaelle/frontend`.
 2. Configure `VITE_API_BASE_URL` to the deployed backend origin, without an `/api` suffix.
 3. Configure `VITE_RAZORPAY_KEY_ID` with the public Razorpay Key ID.
 4. Deploy and test the storefront.
 
 ### Backend project
 
-1. Set **Root Directory** to `backend`.
+1. Set **Root Directory** to `marvaelle/backend`.
 2. Configure `DATABASE_URL`, `JWT_SECRET`, `GOOGLE_CLIENT_ID`, `RAZORPAY_KEY_ID`, and `RAZORPAY_KEY_SECRET` in Vercel Environment Variables.
 3. Apply the required migrations to the production database used by `DATABASE_URL`.
 4. Deploy and verify the API health endpoint.
 
-After deployment, test Google Sign-In, product and inventory retrieval, checkout, server-side payment verification, order history, and newsletter signup. See `backend/DEPLOYMENT.md`, `frontend/DEPLOYMENT.md`, and `frontend/CHECKOUT_TESTING.md` for additional project-specific notes where present.
+After deployment, test Google Sign-In, product and inventory retrieval, checkout, server-side payment verification, order history, and newsletter signup. See `marvaelle/backend/DEPLOYMENT.md`, `marvaelle/frontend/DEPLOYMENT.md`, and `marvaelle/frontend/CHECKOUT_TESTING.md` for additional project-specific notes where present.
 
 ## Validation
 
@@ -273,14 +275,14 @@ Run these checks before pushing changes:
 Backend syntax checks (run from the repository root):
 
 ```bash
-cd backend
+cd marvaelle/backend
 npm run check
 ```
 
 Frontend production build (run from the repository root, in a separate terminal):
 
 ```bash
-cd frontend
+cd marvaelle/frontend
 npm run build
 ```
 
