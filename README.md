@@ -12,61 +12,23 @@ A full-stack fashion e-commerce storefront built with **React, Vite, Node.js/Exp
 
 ## Website Screenshots
 
-The screenshots below are captured from the deployed Marvaelle website. The ten screenshots are stored in `marvaelle/docs/screenshots/`. The paths below are relative to this README at the repository root, so GitHub can render them directly.
+The images are committed under `marvaelle/docs/screenshots/`. These use GitHub-flavoured Markdown image links (not raw HTML `<img>` tags), so GitHub resolves the relative paths from the repository root.
 
-<table>
-  <tr>
-    <td width="50%" align="center">
-      <strong>Homepage / Hero</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134810_marvaelle.vercel.app.jpeg" alt="Marvaelle homepage hero" width="420" />
-    </td>
-    <td width="50%" align="center">
-      <strong>Current Collection</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134827_marvaelle.vercel.app.jpeg" alt="Marvaelle current collection grid" width="420" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <strong>Editorial Section</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134835_marvaelle.vercel.app.jpeg" alt="Marvaelle editorial section" width="420" />
-    </td>
-    <td width="50%" align="center">
-      <strong>Signup / Dialog View</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134847_marvaelle.vercel.app.jpeg" alt="Marvaelle signup or dialog view" width="420" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <strong>Product Experience</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134945_marvaelle.vercel.app.jpeg" alt="Marvaelle product experience" width="420" />
-    </td>
-    <td width="50%" align="center">
-      <strong>Product / Store Layout</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134958_marvaelle.vercel.app.jpeg" alt="Marvaelle product and store layout" width="420" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <strong>Shopping Bag</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134920_marvaelle.vercel.app.jpeg" alt="Marvaelle shopping bag" width="420" />
-    </td>
-    <td width="50%" align="center">
-      <strong>Checkout</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_134946_marvaelle.vercel.app.jpeg" alt="Marvaelle checkout page" width="420" />
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <strong>Shopping Bag / Order Summary</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_135012_marvaelle.vercel.app.jpeg" alt="Marvaelle shopping bag and order summary" width="420" />
-    </td>
-    <td width="50%" align="center">
-      <strong>Account / Form Flow</strong><br />
-      <img src="marvaelle/docs/screenshots/Screenshot_15-10-2026_135035_marvaelle.vercel.app.jpeg" alt="Marvaelle account or form flow" width="420" />
-    </td>
-  </tr>
-</table>
-
+| **Homepage / Hero** | **Current Collection** |
+| --- | --- |
+| ![Homepage / Hero](marvaelle/docs/screenshots/Screenshot_15-10-2026_134810_marvaelle.vercel.app.jpeg) | ![Current Collection](marvaelle/docs/screenshots/Screenshot_15-10-2026_134827_marvaelle.vercel.app.jpeg) |
+| **Editorial Section** | **Signup / Dialog View** |
+| --- | --- |
+| ![Editorial Section](marvaelle/docs/screenshots/Screenshot_15-10-2026_134835_marvaelle.vercel.app.jpeg) | ![Signup / Dialog View](marvaelle/docs/screenshots/Screenshot_15-10-2026_134847_marvaelle.vercel.app.jpeg) |
+| **Shopping Bag** | **Checkout** |
+| --- | --- |
+| ![Shopping Bag](marvaelle/docs/screenshots/Screenshot_15-10-2026_134920_marvaelle.vercel.app.jpeg) | ![Checkout](marvaelle/docs/screenshots/Screenshot_15-10-2026_134946_marvaelle.vercel.app.jpeg) |
+| **Product / Store View** | **Shopping Bag / Order Summary** |
+| --- | --- |
+| ![Product / Store View](marvaelle/docs/screenshots/Screenshot_15-10-2026_13495_marvaelle.vercel.app.jpeg) | ![Shopping Bag / Order Summary](marvaelle/docs/screenshots/Screenshot_15-10-2026_135012_marvaelle.vercel.app.jpeg) |
+| **Account / Form Flow** |  |
+| --- | --- |
+| ![Account / Form Flow](marvaelle/docs/screenshots/Screenshot_15-10-2026_135035_marvaelle.vercel.app.jpeg) |  |
 ---
 
 ## Features
