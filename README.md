@@ -4,8 +4,8 @@ A full-stack fashion e-commerce storefront built with React, Vite, Node.js/Expre
 
 > **Portfolio note:** Before publishing, replace the demo URL placeholders below with your live storefront and API URLs, and add screenshots captured from the working site.
 
-**Live storefront:** `ADD_YOUR_STOREFRONT_URL`  
-**API health:** `ADD_YOUR_BACKEND_URL/api/health`
+**Live storefront:** `https://marvealle.vercel.app/`  
+**API health:** `marvaelle-backend.vercel.app/api/health`
 
 ## Features
 
