@@ -1,184 +1,334 @@
-# Marvaelle
+# Marvaelle — Full-Stack Fashion E-Commerce
 
-A full-stack fashion e-commerce storefront built with React, Vite, Node.js/Express, and PostgreSQL. The application includes account sign-in, product and inventory flows, Razorpay checkout, order history, and a persisted newsletter signup form.
+A full-stack fashion e-commerce platform built with **React, Vite, Node.js, Express, and PostgreSQL**, featuring Google Sign-In, Razorpay payments, persistent inventory, order management, and newsletter subscriptions.
 
-> **Portfolio note:** Before publishing, replace the demo URL placeholders below with your live storefront and API URLs, and add screenshots captured from the working site.
+<p align="center">
+  <a href="https://marvealle.vercel.app/"><strong>Live Storefront</strong></a>
+  &nbsp; · &nbsp;
+  <a href="https://marvaelle-backend.vercel.app/api/health"><strong>API Health</strong></a>
+</p>
 
-**Live storefront:** `https://marvealle.vercel.app/`  
-**API health:** `marvaelle-backend.vercel.app/api/health`
+---
+
+## Screenshots
+
+### Storefront
+
+<p align="center">
+  <img src="docs/screenshots/homepage.png" alt="Marvaelle fashion storefront homepage" width="100%">
+</p>
+
+### Product Experience
+
+<p align="center">
+  <img src="docs/screenshots/product-page.png" alt="Marvaelle product catalogue and product details" width="100%">
+</p>
+
+### Cart and Checkout
+
+<p align="center">
+  <img src="docs/screenshots/cart.png" alt="Marvaelle shopping cart and checkout experience" width="100%">
+</p>
+
+### Responsive Design
+
+<p align="center">
+  <img src="docs/screenshots/mobile-view.png" alt="Marvaelle storefront on a mobile screen" width="380">
+</p>
+
+> Save your actual website screenshots under `docs/screenshots/` using the filenames referenced above. GitHub renders these images directly in the README.
+
+---
 
 ## Features
 
-- Responsive storefront and product catalogue.
-- Cart and product variant selection.
-- Email/password accounts and Google sign-in.
-- Razorpay checkout with server-side payment signature verification.
-- PostgreSQL-backed user profiles, order records, inventory, and order history.
-- Inventory updates during order confirmation.
-- Order-status endpoints for the order-management workflow.
-- Newsletter signups validated and persisted in PostgreSQL.
-- Shared branded dialogs with keyboard and focus handling.
+### Shopping Experience
+- Responsive fashion storefront and product catalogue.
+- Shopping cart with product variant selection.
+- Product and inventory data retrieved through backend APIs.
+- Branded dialogs and validation feedback for user interactions.
 
-**Newsletter scope:** The signup form stores opt-in email addresses. Sending campaigns and unsubscribe management require a separate email delivery provider and are not currently included.
+### Authentication and Accounts
+- Email and password authentication.
+- Google Sign-In using Google Identity Services.
+- JWT-based sessions and user profile retrieval.
+- Authenticated order history.
+
+### Payments and Order Management
+- Razorpay Checkout integration.
+- Server-side payment signature verification.
+- PostgreSQL-backed orders and order items.
+- Inventory updates during order confirmation.
+- Order lookup and order-management endpoints.
+
+### Newsletter
+- Email validation and normalized subscriber addresses.
+- Persistent newsletter subscriptions in PostgreSQL.
+- Duplicate-safe subscriber storage.
+
+**Newsletter scope:** The application stores newsletter opt-ins. Campaign delivery and unsubscribe management require a separate email delivery provider and are not currently implemented.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
-    Customer[Customer browser] --> Storefront[React + Vite storefront]
-    Storefront -->|JSON API requests| API[Node.js + Express API]
+    Customer[Customer] --> UI[React + Vite]
+    UI -->|REST / JSON| API[Node.js + Express]
     API --> DB[(PostgreSQL / Neon)]
-    Storefront -->|Checkout UI| Razorpay[Razorpay Checkout]
-    API -->|Create order and verify payment| Razorpay
-    Storefront -->|Google credential| API
-    API -->|Validate configured audience| Google[Google Identity]
+    UI -->|Google credential| Auth[Google Identity Services]
+    Auth --> UI
+    UI -->|Checkout| Pay[Razorpay]
+    API -->|Create payment order| Pay
+    Pay -->|Payment result| UI
+    UI -->|Confirmation request| API
+    API -->|Verify payment signature| Pay
+    API --> DB
 ```
 
-The frontend and backend can be deployed as separate Vercel projects from this monorepo: set the frontend project's **Root Directory** to `frontend`, and the backend project's **Root Directory** to `backend`.
+The frontend and backend are maintained in one repository and can be deployed independently. The frontend communicates with the backend through REST APIs, while PostgreSQL stores application data.
 
-## Tech stack
+## Tech Stack
 
-- **Frontend:** React, Vite, React Router, Lucide icons, CSS.
-- **Backend:** Node.js 20+, Express 5, PostgreSQL via `pg`, JWT-based sessions, `hash-wasm` password hashing/verification support.
-- **Integrations:** Google Identity Services and Razorpay.
-- **Hosting/database:** Vercel and PostgreSQL (Neon is supported).
+| Layer | Technologies |
+| --- | --- |
+| Frontend | React, Vite, React Router, Lucide, CSS |
+| Backend | Node.js, Express 5 |
+| Database | PostgreSQL, `pg`, Neon-compatible hosting |
+| Authentication | Google Identity Services, JWT |
+| Payments | Razorpay Checkout, server-side signature verification |
+| Deployment | Vercel |
+| Language | JavaScript |
 
-## Repository structure
+## Repository Structure
 
 ```text
 marvaelle/
 ├── frontend/
-│   ├── public/images/        # Storefront product imagery
-│   ├── src/                  # React UI, API client, styles, catalogue data
-│   ├── .env.example          # Frontend environment template
+│   ├── public/
+│   │   └── images/
+│   ├── src/
+│   ├── .env.example
 │   ├── package.json
 │   └── vercel.json
 ├── backend/
-│   ├── migrations/           # Explicit SQL schema changes
-│   ├── src/                  # Express routes, auth and database access
-│   ├── .env.example          # Backend environment template
-│   └── package.json
+│   ├── migrations/
+│   ├── src/
+│   ├── .env.example
+│   ├── package.json
+│   └── DEPLOYMENT.md
+├── docs/
+│   └── screenshots/
+│       ├── homepage.png
+│       ├── product-page.png
+│       ├── cart.png
+│       └── mobile-view.png
 ├── .gitignore
 └── README.md
 ```
 
-## Run locally
+## Getting Started
 
-Requirements: Node.js 20 or newer, npm, and a PostgreSQL database. Use a development database—not production—while experimenting locally.
+### Prerequisites
 
-### 1. Configure the backend
+- Node.js 20 or newer.
+- npm.
+- A PostgreSQL database.
+- Google OAuth Web application credentials for Google Sign-In.
+- Razorpay credentials for payment integration.
+
+Use a development database and Razorpay test credentials when developing locally.
+
+### 1. Configure the Backend
+
+From the repository root:
 
 ```bash
 cd backend
 npm install
 ```
 
-Copy `backend/.env.example` to `backend/.env` and replace the placeholder values. Use PowerShell on Windows with `Copy-Item .env.example .env`, or macOS/Linux with `cp .env.example .env` when your current directory is `backend`.
+Create a local environment file from the template.
 
-Apply the needed SQL migrations to the database named in `DATABASE_URL` before starting the application. Then run:
+**Windows PowerShell:**
+
+```powershell
+Copy-Item .env.example .env
+```
+
+**macOS/Linux:**
+
+```bash
+cp .env.example .env
+```
+
+Configure the environment variables described below, then apply the required SQL migrations to your development database.
+
+Start the backend:
 
 ```bash
 npm run dev
 ```
 
-The local API runs on `http://localhost:3000` by default.
+The default local API address is:
 
-### 2. Configure and run the frontend
+```text
+http://localhost:3000
+```
 
-In a second terminal:
+### 2. Configure the Frontend
+
+Open a second terminal from the repository root:
 
 ```bash
 cd frontend
 npm install
 ```
 
-Copy `frontend/.env.example` to `frontend/.env`. The default `VITE_API_BASE_URL` points to the local API. Set `VITE_RAZORPAY_KEY_ID` to the same **public Key ID** configured as `RAZORPAY_KEY_ID` on the backend.
+Create your local environment file.
+
+**Windows PowerShell:**
+
+```powershell
+Copy-Item .env.example .env
+```
+
+**macOS/Linux:**
+
+```bash
+cp .env.example .env
+```
+
+Configure `VITE_API_BASE_URL` to point to your local backend and set the public Razorpay Key ID.
+
+Start the frontend:
 
 ```bash
 npm run dev
 ```
 
-Vite prints the local storefront URL in the terminal.
+Open the local URL printed by Vite.
 
-## Environment variables
+## Environment Variables
 
-### Frontend (`frontend/.env`)
-
-| Variable | Purpose |
-| --- | --- |
-| `VITE_API_BASE_URL` | Base URL for the Express API, e.g. `http://localhost:3000` locally. |
-| `VITE_RAZORPAY_KEY_ID` | Public Razorpay Key ID used by Checkout; must match the backend Key ID. |
-
-### Backend (`backend/.env`)
+### Frontend — `frontend/.env`
 
 | Variable | Purpose |
 | --- | --- |
-| `PORT` | Local server port; defaults to `3000` in the local entry point. |
-| `DATABASE_URL` | PostgreSQL connection string. |
-| `JWT_SECRET` | Secret used to sign application session tokens. |
-| `GOOGLE_CLIENT_ID` | Google OAuth **Web application** Client ID used to validate Google credentials. |
-| `RAZORPAY_KEY_ID` | Razorpay Key ID used by the backend to create orders. |
-| `RAZORPAY_KEY_SECRET` | Secret Razorpay API credential; backend only. |
+| `VITE_API_BASE_URL` | Backend base URL, such as `http://localhost:3000` |
+| `VITE_RAZORPAY_KEY_ID` | Public Razorpay Key ID used by Checkout |
 
-`VITE_*` variables are included in the browser bundle and must never contain secrets. Do not put `DATABASE_URL`, `JWT_SECRET`, or `RAZORPAY_KEY_SECRET` in the frontend environment. Google configuration is fetched from the backend; a separate `VITE_GOOGLE_CLIENT_ID` is not needed by this code.
+### Backend — `backend/.env`
 
-## Database migrations
+| Variable | Purpose |
+| --- | --- |
+| `PORT` | Local server port; defaults to `3000` in the local entry point |
+| `DATABASE_URL` | PostgreSQL connection string |
+| `JWT_SECRET` | Secret used to sign application session tokens |
+| `GOOGLE_CLIENT_ID` | Google OAuth Web application Client ID |
+| `RAZORPAY_KEY_ID` | Razorpay Key ID |
+| `RAZORPAY_KEY_SECRET` | Private Razorpay API secret |
 
-Migrations are explicit and are **not automatically applied at application startup**. Apply them to the intended PostgreSQL database using your provider's SQL editor or an approved migration workflow.
+Google sign-in configuration is fetched from the backend; a separate `VITE_GOOGLE_CLIENT_ID` is not required by the current implementation.
 
-- `001_marvaelle.sql` — core user, order, order-item, and stock schema; seeds stock only for absent rows.
-- `002_restore_current_catalog_inventory.sql` — **optional one-time recovery only** if launch inventory needs to be restored. It overwrites quantities for listed products. Do not run after real sales.
-- `003_order_item_variants.sql` — adds size and colour to order items.
-- `004_newsletter_subscribers.sql` — creates the newsletter subscriber table.
+**Security:** Variables prefixed with `VITE_` are exposed to the browser bundle. Never put database credentials, JWT secrets, or private payment keys in frontend environment variables. Do not commit actual `.env` files.
 
-For an existing production database, inspect the current schema and migration history first; don't blindly rerun the inventory-recovery migration. Back up data before making schema changes.
+## Database Migrations
 
-## API overview
+Database migrations are explicit and are not automatically applied during application startup. Apply them to the correct database before using features that depend on their tables or columns.
 
-| Method | Endpoint | Purpose |
+| Migration | Purpose |
+| --- | --- |
+| `001_marvaelle.sql` | Core user, order, order-item, and stock schema |
+| `002_restore_current_catalog_inventory.sql` | Optional one-time inventory recovery |
+| `003_order_item_variants.sql` | Adds size and colour to order items |
+| `004_newsletter_subscribers.sql` | Creates the newsletter subscriber table |
+
+**Important:** Migration `002_restore_current_catalog_inventory.sql` can overwrite quantities for listed products. Do not execute it after real sales without reviewing its effects.
+
+For an existing database, inspect its schema and migration history before applying changes. Back up important data first.
+
+## API Overview
+
+| Method | Endpoint | Description |
 | --- | --- | --- |
-| `GET` | `/api/health` | Health and configuration status. |
-| `GET` | `/api/products` | Product catalogue and stock data. |
-| `POST` | `/api/auth/signup` | Create an account. |
-| `POST` | `/api/auth/login` | Email/password sign-in. |
-| `GET` | `/api/auth/google/config` | Return public Google sign-in configuration. |
-| `POST` | `/api/auth/google` | Verify Google sign-in credential. |
-| `GET` | `/api/profile` | Read the signed-in user's profile. |
-| `GET` | `/api/orders` | Read the signed-in user's orders. |
-| `POST` | `/api/orders/create` | Create a payment order. |
-| `POST` | `/api/orders/confirm` | Verify payment and confirm an order. |
-| `POST` | `/api/newsletter/subscribe` | Store a newsletter opt-in. |
+| GET | `/api/health` | Health and configuration status |
+| GET | `/api/products` | Retrieve catalogue and stock data |
+| POST | `/api/auth/signup` | Create an account |
+| POST | `/api/auth/login` | Sign in with email and password |
+| GET | `/api/auth/google/config` | Retrieve public Google sign-in configuration |
+| POST | `/api/auth/google` | Verify a Google sign-in credential |
+| GET | `/api/profile` | Retrieve the authenticated user's profile |
+| GET | `/api/orders` | Retrieve the authenticated user's orders |
+| POST | `/api/orders/create` | Create a payment order |
+| POST | `/api/orders/confirm` | Verify payment and confirm an order |
+| POST | `/api/newsletter/subscribe` | Save a newsletter opt-in |
 
-Additional order lookup and order-management routes are implemented in `backend/src/index.js`.
+Additional order lookup and order-management endpoints are implemented in `backend/src/index.js`.
 
-## Deployment on Vercel
+## Deployment
 
-1. Push this repository to GitHub.
-2. Create or connect the frontend Vercel project and set **Root Directory** to `frontend`.
-3. Create or connect the backend Vercel project and set **Root Directory** to `backend`.
-4. Configure the appropriate environment variables in each project's Vercel settings. Do not commit actual values.
-5. Confirm required database migrations have been applied to the database referenced by the backend's `DATABASE_URL`.
-6. Deploy the backend and verify `/api/health`; set `VITE_API_BASE_URL` on the frontend to the deployed backend origin (without an `/api` suffix), then deploy the frontend.
-7. Test Google sign-in with the correct Web application Client ID and authorized storefront origin. Test checkout with Razorpay test credentials before accepting real payments.
+The application supports separate frontend and backend deployments on Vercel.
 
-See `backend/DEPLOYMENT.md` and `frontend/DEPLOYMENT.md` for project-specific deployment notes, and `frontend/CHECKOUT_TESTING.md` for checkout checks.
+### Frontend
 
-## Validation commands
+1. Connect the repository to a Vercel project.
+2. Set the Root Directory to `frontend`.
+3. Configure `VITE_API_BASE_URL` with the deployed backend origin, without an `/api` suffix.
+4. Configure `VITE_RAZORPAY_KEY_ID` with the public payment key.
+5. Deploy and test the storefront.
+
+### Backend
+
+1. Connect the same repository to a separate Vercel project.
+2. Set the Root Directory to `backend`.
+3. Configure `DATABASE_URL`, `JWT_SECRET`, `GOOGLE_CLIENT_ID`, `RAZORPAY_KEY_ID`, and `RAZORPAY_KEY_SECRET`.
+4. Apply the required database migrations to the intended production database.
+5. Deploy and verify the API health endpoint.
+
+After deployment, test authentication, product and inventory retrieval, checkout, payment verification, order history, and newsletter signup.
+
+See `backend/DEPLOYMENT.md`, `frontend/DEPLOYMENT.md`, and `frontend/CHECKOUT_TESTING.md` for additional project-specific instructions where present.
+
+## Validation
+
+Run the checks before pushing changes.
+
+**Backend syntax checks:**
 
 ```bash
-# Backend syntax checks
-cd backend && npm run check
-
-# Frontend production build
-cd frontend && npm run build
+cd backend
+npm run check
 ```
 
-Run these locally before pushing changes. Add/commit the generated `package-lock.json` files from both app folders so installs are repeatable; do not commit `node_modules/` or build output.
+**Frontend production build:**
 
-## Security and contribution notes
+```bash
+cd frontend
+npm run build
+```
 
-- Never commit `.env`, credentials, database URLs, private keys, customer data, or production database exports.
-- Keep Razorpay's secret key and the JWT secret on the backend only.
-- Use test payment credentials for development and validate payment on the server.
-- Verify that you have permission to publish all product images, brand assets, and other media in this public repository.
-- Keep pull requests small and describe what changed and how it was tested.
+Commit the lockfiles generated by npm in both application directories so dependencies can be installed reproducibly. Do not commit `node_modules/` or generated build output.
+
+## Security
+
+- Never commit `.env` files, database connection strings, private keys, or customer data.
+- Keep `JWT_SECRET` and `RAZORPAY_KEY_SECRET` exclusively on the backend.
+- Verify payment signatures on the server before confirming an order.
+- Use test payment credentials during development.
+- Review authorization and validation on all order-management endpoints.
+- Confirm you have permission to publish product images, branding, and other third-party assets before making the repository public.
+
+## Future Improvements
+
+Potential enhancements include:
+
+- Newsletter campaign delivery and unsubscribe management.
+- Product reviews and ratings.
+- Product search, filtering, and sorting.
+- Automated API and checkout integration tests.
+- CI checks for pull requests and production builds.
+- Structured logging and monitoring for payment and order workflows.
+
+---
+
+**Built as a full-stack engineering project**, demonstrating frontend development, REST API integration, authentication, payment workflows, relational data persistence, and cloud deployment.
