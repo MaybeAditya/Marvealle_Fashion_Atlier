@@ -12,23 +12,20 @@ A full-stack fashion e-commerce storefront built with **React, Vite, Node.js/Exp
 
 ## Website Screenshots
 
-The images are committed under `marvaelle/docs/screenshots/`. These use GitHub-flavoured Markdown image links (not raw HTML `<img>` tags), so GitHub resolves the relative paths from the repository root.
+These screenshots are captured from the deployed storefront. Image URLs point directly to the files committed in this repository so the gallery renders from the root README.
 
 | **Homepage / Hero** | **Current Collection** |
 | --- | --- |
-| ![Homepage / Hero](marvaelle/docs/screenshots/Screenshot_15-10-2026_134810_marvaelle.vercel.app.jpeg) | ![Current Collection](marvaelle/docs/screenshots/Screenshot_15-10-2026_134827_marvaelle.vercel.app.jpeg) |
-| **Editorial Section** | **Signup / Dialog View** |
-| --- | --- |
-| ![Editorial Section](marvaelle/docs/screenshots/Screenshot_15-10-2026_134835_marvaelle.vercel.app.jpeg) | ![Signup / Dialog View](marvaelle/docs/screenshots/Screenshot_15-10-2026_134847_marvaelle.vercel.app.jpeg) |
-| **Shopping Bag** | **Checkout** |
-| --- | --- |
-| ![Shopping Bag](marvaelle/docs/screenshots/Screenshot_15-10-2026_134920_marvaelle.vercel.app.jpeg) | ![Checkout](marvaelle/docs/screenshots/Screenshot_15-10-2026_134946_marvaelle.vercel.app.jpeg) |
-| **Product / Store View** | **Shopping Bag / Order Summary** |
-| --- | --- |
-| ![Product / Store View](marvaelle/docs/screenshots/Screenshot_15-10-2026_13495_marvaelle.vercel.app.jpeg) | ![Shopping Bag / Order Summary](marvaelle/docs/screenshots/Screenshot_15-10-2026_135012_marvaelle.vercel.app.jpeg) |
-| **Account / Form Flow** |  |
-| --- | --- |
-| ![Account / Form Flow](marvaelle/docs/screenshots/Screenshot_15-10-2026_135035_marvaelle.vercel.app.jpeg) |  |
+| ![Marvaelle homepage](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_134810_marvealle.vercel.app.jpeg) | ![Marvaelle current collection](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_134827_marvealle.vercel.app.jpeg) |
+| **Newsletter Footer** | **Newsletter Confirmation** |
+| ![Newsletter footer](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_134835_marvealle.vercel.app.jpeg) | ![Newsletter success dialog](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_134847_marvealle.vercel.app.jpeg) |
+| **Product Page** | **Shopping Bag** |
+| ![Product page](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_13495_marvealle.vercel.app.jpeg) | ![Shopping bag](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_134920_marvealle.vercel.app.jpeg) |
+| **Checkout Details** | **Razorpay Payment Options** |
+| ![Checkout details](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_134946_marvealle.vercel.app.jpeg) | ![Razorpay payment options](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_134958_marvealle.vercel.app.jpeg) |
+| **Shopping Bag / Order Summary** | **Account / Sign-in** |
+| ![Shopping bag summary](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_135012_marvealle.vercel.app.jpeg) | ![Account sign-in](https://raw.githubusercontent.com/MaybeAditya/Marvealle_Fashion_Atlier/main/marvaelle/docs/screenshots/Screenshot_15-10-2026_135035_marvealle.vercel.app.jpeg) |
+
 ---
 
 ## Features
